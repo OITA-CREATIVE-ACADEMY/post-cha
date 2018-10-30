@@ -1,2 +1,2 @@
-# post-cha-
+# Post-cha-
 Aチームの卒業制作SNSです
