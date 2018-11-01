@@ -1,0 +1,28 @@
+[debug] [2018-11-01T09:47:02.766Z] ----------------------------------------------------------------------
+[debug] [2018-11-01T09:47:02.769Z] Command:       /Users/oca/.nodebrew/node/v10.11.0/bin/node /Users/oca/.nodebrew/current/bin/firebase serve
+[debug] [2018-11-01T09:47:02.769Z] CLI Version:   4.2.1
+[debug] [2018-11-01T09:47:02.770Z] Platform:      darwin
+[debug] [2018-11-01T09:47:02.770Z] Node Version:  v10.11.0
+[debug] [2018-11-01T09:47:02.783Z] Time:          Thu Nov 01 2018 18:47:02 GMT+0900 (GMT+09:00)
+[debug] [2018-11-01T09:47:02.784Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-01T09:47:02.800Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-01T09:47:02.800Z] > authorizing via signed-in user
+[debug] [2018-11-01T09:47:02.802Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-01T09:47:02.802Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-11-01T09:47:03.077Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-01T09:47:03.087Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/post-cha  
+ 
+[debug] [2018-11-01T09:47:03.823Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-01T09:47:03.826Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/post-cha  
+ 
+[debug] [2018-11-01T09:47:04.995Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/oca/Documents/OCA/#post/post-cha'...
+[info] 
+[debug] [2018-11-01T09:47:04.999Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/656801433168/clients/_:getWebAppConfig  
+ 
+[debug] [2018-11-01T09:47:05.610Z] <<< HTTP RESPONSE 200
+[info] i  hosting[post-cha]: Serving hosting files from: public
+[info] ✔  hosting[post-cha]: Local server: http://localhost:5000
