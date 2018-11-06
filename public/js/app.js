@@ -27,7 +27,7 @@ window.onload = function () {
   var button;
 
   // ボタンがクリックされた時の処理
-  $("#newuser").on('click', function (e) {
+  $("#newuser, #login").on('click', function (e) {
 
     // メールアドレス・パスワードを取得
     var email = document.getElementById('email').value;
