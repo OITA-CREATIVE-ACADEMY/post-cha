@@ -29,3 +29,8 @@ p.title {
 .card {
     margin: 20px;
 }
+
+.heartIcon {
+    color: tomato;
+    font-size: 30px;
+}
