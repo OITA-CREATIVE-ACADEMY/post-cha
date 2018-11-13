@@ -43,6 +43,10 @@ window.onload = function () {
     // ログイン
     firebase.auth().signInWithEmailAndPassword(email, password)
 
+    //ヘッダーにユーザーのメールアドレスを追加
+    var userInfo = document.getElementById('userInfo')
+    userInfo.innerHTML = email + "さん、ようこそ！";
+
   });
   $(".logout").on('click', function (e) {
 
