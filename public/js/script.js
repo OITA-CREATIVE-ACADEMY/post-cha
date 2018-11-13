@@ -1,13 +1,13 @@
 // POST-cha!のjsファイルです
 
 $(function(){
-
+    
 
     //ログイン・新規登録ボタンを押した時、モーダルを開く
     $(document).on('click', '.login, .signup', modalShow);
 
     function modalShow(e){
-        alert("ああああああああああああああ");
+        // alert("ああああああああああああああ");
         var target = $(e.target);
         console.log(target);
         if (target.hasClass('add-modal')) {
@@ -20,6 +20,7 @@ $(function(){
         $('#add-button').css('display', 'none');
         $('#update-button').css('display', 'block');
         $('#delete-button').css('display', 'block');
+
 
         
     }
