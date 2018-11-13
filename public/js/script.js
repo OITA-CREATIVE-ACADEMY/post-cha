@@ -7,7 +7,7 @@ $(function(){
     $(document).on('click', '.login, .signup', modalShow);
 
     function modalShow(e){
-        alert("ああああああああああああああ");
+        // alert("ああああああああああああああ");
         var target = $(e.target);
         console.log(target);
         if (target.hasClass('add-modal')) {
