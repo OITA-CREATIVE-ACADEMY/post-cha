@@ -14,12 +14,18 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
     if(user) {
         // ログイン状態の処理
-        alert("いまログイン中!!!");
         $("#signup, #login").hide();
+
+        //ヘッダーにユーザーのメールアドレスを追加
+        $("#js-user-email").text(user.email);
+
         console.log(user);
     }
     else {
         // ログアウト状態の処理
+        //ヘッダーにユーザーのメールアドレスを追加
+        $("#js-user-email").text("");
+
         alert("いまはログインしてません！！");
         $("#signup, #login").show();
         $("#logout").hide();
@@ -38,7 +44,7 @@ window.onload = function () {
     });
 
     $("#js-signOut").on('click', function (e) {
-        signOut()
+      signOut()
     });
 };
 
