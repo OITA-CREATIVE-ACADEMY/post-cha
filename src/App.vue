@@ -152,7 +152,7 @@ p{
 p.title {
     color: white;
     font-size: 15px;
-    
+
 }
 
 .wrapper {
@@ -179,10 +179,6 @@ p.title {
     font-size: 30px;
 }
 
-.form-control{
-    height: 200px;
-}
-
 .attention{
     padding-bottom: 1px;
 }
@@ -191,6 +187,6 @@ textarea {
     resize: none;
     width:100%;
     height:100px;
-} 
+}
 
 </style>
