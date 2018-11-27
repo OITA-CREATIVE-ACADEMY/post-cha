@@ -1,4 +1,4 @@
-# POST-cha!
+# POST-cha!(ここはバックアップの跡地です！)
 Aチームの卒業制作SNSです<BR>
 <https://post-cha.firebaseapp.com/>
 
