@@ -32,7 +32,7 @@
             <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Login</a>
           </li>
           <li class="nav-item logout js-signed-in">
-            <a class="nav-link" href="javascript:void(0);" id="js-signOut">Log out</a>
+            <a class="nav-link" href="javascript:void(0);" id="js-signOut" v-on:click="logOut">Log out</a>
           </li>
           <li class="nav-item signup js-signed-out" id="signup">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Sign up</a>
@@ -55,18 +55,18 @@
                 <form>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control input_email" id="js-email" aria-describedby="emailHelp" placeholder="Enter email">
+                      <input type="email" class="form-control input_email" id="js-email" aria-describedby="emailHelp" placeholder="Enter email" v-model="email">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control input_password" id="js-password" placeholder="Password">
+                      <input type="password" class="form-control input_password" id="js-password" placeholder="Password" v-model="password">
                     </div>
                   </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button id="js-signIn" type="button" class="btn btn-primary input_login">Login</button>
-              <button id="js-signUp" type="button" class="btn btn-primary input_signup">Sign up</button>
+              <button id="js-signIn" type="button" class="btn btn-primary input_login" v-on:click="logIn">Login</button>
+              <button id="js-signUp" type="button" class="btn btn-primary input_signup" v-on:click="signUp">Sign up</button>
             </div>
           </div>
         </div>
@@ -78,19 +78,19 @@
     <div class="wrapper">
       <!-- 新規投稿用カード -->
       <div class="jumbotron">
-          <h2 class="display-5">POST-cha!へようこそ</h2>
-          <p class="lead">まずはあなたの言葉で、気楽にPOSTしてみてください。そこから新たな出会いが生まれるかもしれません。</p>
-          <hr class="my-4">
-          <p class="attention">入力文字200文字以内</p>
-          <div class="input-group mb-3">
-             <textarea name="postdata"></textarea><br>
-              <div class="input-group-append">
-              </div>
+        <h2 class="display-5">POST-cha!へようこそ！！！！</h2>
+        <p class="lead">まずはあなたの言葉で、気楽にPOSTしてみてください。そこから新たな出会いが生まれるかもしれません。</p>
+        <hr class="my-4">
+        <p class="attention">入力文字200文字以内</p>
+        <div class="input-group mb-3">
+           <textarea name="postdata"></textarea><br>
+            <div class="input-group-append">
             </div>
-          <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">POST</a>
-          </p>
-        </div>
+          </div>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">POST</a>
+        </p>
+      </div>
 
       <!-- /新規投稿用カード -->
       <!-- 投稿一覧 -->
@@ -127,13 +127,54 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
-  name: 'app',
+  name: 'App',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      email: '',
+      password: ''
     }
+  },
+  methods: {
+    signUp: function () {
+      console.log(this.email);
+
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(user => {
+          alert('Create account: ', user.email)
+        }).catch(error => {
+          alert(error.message)
+        });
+    },
+    logIn: function () {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+        user => {
+          alert('Success!');
+        },
+        err => {
+          alert(err.message)
+        }
+      )
+    },
+    logOut: function () {
+      firebase.auth().signOut().then(() => {
+        alert("ログアウトしました！！");
+      })
+    }
+
   }
+}
+window.onload = function() {
+   firebase.auth().onAuthStateChanged( user => {
+    if (user) {
+      // User is signed in.
+      console.log("ログイン中！")
+    } else {
+      // No user is signed in.
+      console.log("ログインしてません！")
+    }
+  })
 }
 </script>
 
