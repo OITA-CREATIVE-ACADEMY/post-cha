@@ -137,15 +137,35 @@ export default {
       password: ''
     }
   },
+  created: function() {
+    this.database = firebase.database();
+    this.testsRef = this.database.ref('users');
+  },
   methods: {
     signUp: function () {
       console.log(this.email);
 
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(user => {
-          alert('Create account: ', user.email)
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(res => {
+          // alert('Create account: ', res.user.email);
+          console.log(res.user);
+          const user = res.user;
+
+          this.database.ref("users").child(user.uid).set({
+           email: user.email,
+           displayName: user.email,
+         });
         }).catch(error => {
           alert(error.message)
         });
+    },
+    createtest: function() {
+      if (this.newTodoName == "") { return; }
+      this.testsRef.push({
+        name: this.newTodoName,
+        isComplete: false,
+        test: "TEST!!",
+      })
+      this.newTodoName = "";
     },
     logIn: function () {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
@@ -169,10 +189,13 @@ window.onload = function() {
    firebase.auth().onAuthStateChanged( user => {
     if (user) {
       // User is signed in.
-      console.log("ログイン中！")
+      console.log("ログイン中！");
+      console.log(user);
+      console.log(user.email);
+      console.log(user.uid);
     } else {
       // No user is signed in.
-      console.log("ログインしてません！")
+      alert("ログインしてません！")
     }
   })
 }
