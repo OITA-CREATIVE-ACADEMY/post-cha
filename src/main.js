@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import BootstrapVue from "bootstrap-vue"
-import App from './App'
+import App from './App.vue'
 
 import firebase from 'firebase/app';
 // import 'firebase/post-cha.firebaseapp.com';
